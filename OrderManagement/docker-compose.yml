@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: OrderManagement_SQLServer
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=StajProjesi123!* # Güçlü bir şifre olmalı
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:
